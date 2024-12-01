@@ -20,7 +20,7 @@ const UpdateEmployee = () => {
     const fetchEmployeeData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3002/api/v1/emp/employees/${empId}`
+          `https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees/${empId}`
         );
         setEmployeeData(response.data); // Assume response contains employee data
       } catch (err) {
@@ -36,10 +36,10 @@ const UpdateEmployee = () => {
 
     try {
       await axios.put(
-        `http://localhost:3002/api/v1/emp/employees/${empId}`,
+        `https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees/${empId}`,
         employeeData
       );
-      alert("Employee updated successfully!")
+      alert("Employee updated successfully!");
       setError("");
       navigate("/employees");
     } catch (err) {

@@ -31,7 +31,7 @@ const AddEmployee = () => {
     }
 
     try {
-      await axios.post('http://localhost:3002/api/v1/emp/employees', newEmployee);
+      await axios.post('https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees', newEmployee);
       alert('Employee added successfully!');
       navigate('/employees/employeelist');
     } catch (err) {

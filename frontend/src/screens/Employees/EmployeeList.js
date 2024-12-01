@@ -18,7 +18,7 @@ const EmployeeList = () => {
   // Fetch employees from the backend
   const fetchEmployees = () => {
     axios
-      .get('http://localhost:3002/api/v1/emp/employees')
+      .get('https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees')
       .then((response) => {
         setEmployees(response.data);
         setFilteredEmployees(response.data); // Initialize filtered list
@@ -32,7 +32,7 @@ const EmployeeList = () => {
   const deleteEmployee = (empId) => {
     if (window.confirm('Are you sure you want to delete this employee?')) {
       axios
-        .delete('http://localhost:3002/api/v1/emp/employees', {
+        .delete('https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees', {
           params: { empId },
         })
         .then(() => {

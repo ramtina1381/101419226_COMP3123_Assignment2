@@ -15,7 +15,7 @@ const Users = () => {
     const password = passwordRef.current.value;
 
     try {
-      const response = await axios.post("http://localhost:3002/api/v1/user/login", {
+      const response = await axios.post("https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/user/login", {
         email,
         password,
       });

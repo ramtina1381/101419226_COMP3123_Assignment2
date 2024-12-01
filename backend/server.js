@@ -11,7 +11,11 @@ const DB_URL = "mongodb+srv://Ramtin:XZv8YYmxcK90lfDe@cluster0.9zcim.mongodb.net
 // Middleware
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({ origin: SERVER_PORT }));
+app.use(cors({ 
+    origin: 'https://one01419226-comp3123-assignment2-frontend.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Optional: specify allowed methods
+    credentials: true // Optional: include credentials if necessary
+}));
 
 // Import user routes
 const userRouter = require('./routes/user');
