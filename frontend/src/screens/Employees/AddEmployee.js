@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AddEmployee = () => {
   const firstNameRef = useRef();
@@ -10,7 +10,7 @@ const AddEmployee = () => {
   const salaryRef = useRef();
   const departmentRef = useRef();
   const passwordRef = useRef();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleAddEmployee = async (e) => {
@@ -26,16 +26,22 @@ const AddEmployee = () => {
     };
 
     if (Object.values(newEmployee).some((field) => !field)) {
-      setError('All fields are required.');
+      setError("All fields are required.");
       return;
     }
 
     try {
-      await axios.post('https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees', newEmployee);
-      alert('Employee added successfully!');
-      navigate('/employees/employeelist');
+      await axios.post(
+        "https://one01419226-comp3123-assignment2-backend-5ko1.onrender.com/api/v1/emp/employees",
+        newEmployee
+      );
+      alert("Employee added successfully!");
+      navigate("/employees");
     } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred while adding the employee.');
+      setError(
+        err.response?.data?.message ||
+          "An error occurred while adding the employee."
+      );
     }
   };
 
@@ -45,35 +51,70 @@ const AddEmployee = () => {
       <form onSubmit={handleAddEmployee}>
         <label>
           First Name:
-          <input type="text" ref={firstNameRef} placeholder="Enter First Name" required />
+          <input
+            type="text"
+            ref={firstNameRef}
+            placeholder="Enter First Name"
+            required
+          />
         </label>
         <label>
           Last Name:
-          <input type="text" ref={lastNameRef} placeholder="Enter Last Name" required />
+          <input
+            type="text"
+            ref={lastNameRef}
+            placeholder="Enter Last Name"
+            required
+          />
         </label>
         <label>
           Email:
-          <input type="email" ref={emailRef} placeholder="Enter Email" required />
+          <input
+            type="email"
+            ref={emailRef}
+            placeholder="Enter Email"
+            required
+          />
         </label>
         <label>
           Position:
-          <input type="text" ref={positionRef} placeholder="Enter Position" required />
+          <input
+            type="text"
+            ref={positionRef}
+            placeholder="Enter Position"
+            required
+          />
         </label>
         <label>
           Salary:
-          <input type="number" ref={salaryRef} placeholder="Enter Salary" required />
+          <input
+            type="number"
+            ref={salaryRef}
+            placeholder="Enter Salary"
+            required
+          />
         </label>
         <label>
           Department:
-          <input type="text" ref={departmentRef} placeholder="Enter Department" required />
+          <input
+            type="text"
+            ref={departmentRef}
+            placeholder="Enter Department"
+            required
+          />
         </label>
         <label>
           Password:
-          <input type="password" ref={passwordRef} placeholder="Enter Password" required />
+          <input
+            type="password"
+            ref={passwordRef}
+            placeholder="Enter Password"
+            required
+          />
         </label>
         <button type="submit">Add Employee</button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <button onClick={() => navigate(-1)}>Back</button>
     </div>
   );
